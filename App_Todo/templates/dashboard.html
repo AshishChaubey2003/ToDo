@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary text-center p-3">
+                <h3>{{ total_tasks }}</h3>
+                <p>Total Tasks</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success text-center p-3">
+                <h3>{{ completed_tasks }}</h3>
+                <p>Completed</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning text-center p-3">
+                <h3>{{ pending_tasks }}</h3>
+                <p>Pending</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-info text-center p-3">
+                <h3>{{ total_hours }} hrs</h3>
+                <p>Total Hours</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consistency -->
+    <div class="alert alert-info text-center">
+        <h5>Last 30 Days: <strong>{{ days_studied }} days studied</strong> — {{ consistency }}</h5>
+    </div>
+
+    <!-- Graph -->
+    <div class="card p-4">
+        <h4 class="mb-3">📊 Daily Study Graph (Last 30 Days)</h4>
+        <canvas id="studyChart"></canvas>
+    </div>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('studyChart').getContext('2d');
+    const studyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ labels|safe }},
+            datasets: [{
+                label: 'Tasks Completed',
+                data: {{ data|safe }},
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

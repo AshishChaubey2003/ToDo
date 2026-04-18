@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow-sm p-4">
+    
+    <h2 class="text-danger mb-3">Delete Task</h2>
+
+    <p class="mb-4">
+        Are you sure you want to delete the task 
+        <strong>"{{ task.title }}"</strong>?
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">
+            Delete
+        </button>
+
+        <a href="{% url 'App_Todo:task_list' %}" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+
+</div>
+
+{% endblock %}
