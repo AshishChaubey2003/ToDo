@@ -1,95 +1,98 @@
-# 📝 Django Todo App — Study Tracker
+# 🗒️ ToDo — Personal Study Tracker
 
-A personal study tracker built with Django that helps you manage tasks, track consistency, and stay motivated.
-
----
-
-## 🚀 Features
-
-- ✅ Task Management (Create, Read, Update, Delete)
-- 🔐 User Authentication (Login / Register)
-- 📊 Dashboard with Charts
-- 🔥 Streak System (track consecutive study days)
-- 📧 Weekly Email Report
-- 🔔 Daily Reminder API
-- 📈 Consistency Checker (On Track / Off Track)
+> *"Consistency beats intensity."* — Track your study habits, stay on streak, and never miss a day.
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 What is this?
 
-- **Backend:** Django 5.2
-- **Database:** SQLite3
-- **Frontend:** HTML, Bootstrap 5, Chart.js
-- **Email:** Gmail SMTP
-- **API Testing:** Postman
+This is not just a todo app.  
+It's a **personal study accountability system** built with Django.  
+Add your daily study tasks, mark them complete, and let the app tell you if you're **On Track** or **Off Track**.
 
 ---
 
-## ⚙️ Setup & Installation
+## ✨ Features at a Glance
 
-### 1. Clone the repository
+| Feature | Description |
+|--------|-------------|
+| 📝 Task Manager | Add, edit, delete, and complete tasks |
+| 🔐 Auth System | Register & login — your data stays yours |
+| 📊 Dashboard | Visual chart of your last 30 days |
+| 🔥 Streak Tracker | See how many days in a row you've studied |
+| 📈 Consistency Check | On Track if 10+ days studied in last 15 |
+| 🔔 Daily Reminder | API tells you if you studied today or not |
+| 📧 Weekly Report | Get your weekly summary on email |
+
+---
+
+## 🛠️ Built With
+Django 5.2  •  Bootstrap 5  •  Chart.js  •  SQLite3  •  Gmail SMTP
+
+---
+
+## ⚡ Quick Start
+
 ```bash
+# Clone karo
 git clone https://github.com/AshishChaubey2003/ToDo.git
 cd ToDo
-```
 
-### 2. Create virtual environment
-```bash
+# Virtual env banao
 python -m venv todoenv
-todoenv\Scripts\activate
-```
+todoenv\Scripts\activate    # Windows
+source todoenv/bin/activate # Mac/Linux
 
-### 3. Install dependencies
-```bash
+# Dependencies install karo
 pip install -r requirements.txt
-```
 
-### 4. Create `.env` file
+# .env file banao
 SECRET_KEY=tumhara-secret-key
-EMAIL_HOST_USER=tumhari_gmail@gmail.com
-EMAIL_HOST_PASSWORD=tumhara_app_password
+EMAIL_HOST_USER=tumhari@gmail.com
+EMAIL_HOST_PASSWORD=app_password_here
 
-### 5. Run migrations
-```bash
-python manage.py makemigrations
+# Database setup
 python manage.py migrate
-```
 
-### 6. Run server
-```bash
+# Server chalao
 python manage.py runserver
 ```
 
 ---
 
-## 🌐 API Endpoints
-
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/` | Task List |
-| POST | `/add/` | Create Task |
-| GET/POST | `/edit/<id>/` | Update Task |
-| GET | `/delete/<id>/` | Delete Task |
-| GET | `/toggle/<id>/` | Toggle Complete |
-| GET | `/dashboard/` | Dashboard |
-| GET | `/check-consistency/` | Consistency Check |
-| GET | `/daily-reminder/` | Daily Reminder |
-| GET | `/weekly-report/` | Weekly Email Report |
-| GET | `/streak/` | Current Streak |
-| GET | `/login/` | Login |
-| GET | `/register/` | Register |
-| GET | `/logout/` | Logout |
+## 🌐 API Reference
+GET  /                     → All tasks
+POST /add/                 → Create task (JSON supported)
+GET  /dashboard/           → Dashboard + graph
+GET  /streak/              → Current streak 🔥
+GET  /check-consistency/   → On Track / Off Track
+GET  /daily-reminder/      → Studied today?
+GET  /weekly-report/       → Email report bhejo
+GET  /login/               → Login
+GET  /register/            → Register
 
 ---
 
-## 📸 Screenshots
-
-> Dashboard, Task List aur Login screenshots yahan add karo!
+## 📁 Project Structure
+Main_ToDo/
+├── App_Todo/
+│   ├── templates/        → HTML files
+│   ├── models.py         → Task model
+│   ├── views.py          → All logic
+│   └── urls.py           → URL routes
+├── Main_ToDo/
+│   ├── settings.py       → Config
+│   └── urls.py           → Main URLs
+├── requirements.txt
+└── manage.py
 
 ---
 
 ## 👨‍💻 Author
 
 **Ashish Kumar Chaubey**  
-GitHub: [@AshishChaubey2003](https://github.com/AshishChaubey2003)
+[@AshishChaubey2003](https://github.com/AshishChaubey2003)
+
+---
+
+⭐ *Agar helpful laga toh star do!*
